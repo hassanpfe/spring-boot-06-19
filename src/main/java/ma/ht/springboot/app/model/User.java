@@ -1,11 +1,12 @@
 /**
  * 
  */
-package ma.rma.watanya.app.model;
+package ma.ht.springboot.app.model;
 
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 

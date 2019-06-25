@@ -1,7 +1,7 @@
 /**
  * 
  */
-package ma.rma.watanya.app.mvc;
+package ma.ht.springboot.app.mvc;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
