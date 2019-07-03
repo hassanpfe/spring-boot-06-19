@@ -6,6 +6,8 @@ package ma.ht.springboot.app.mvc;
 import java.math.BigDecimal;
 
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -23,7 +25,8 @@ import ma.ht.springboot.app.service.NumberService;
  */
 @Controller
 public class WelcomeController {
-
+	
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Autowired
 	NumberService numberService;
@@ -33,6 +36,13 @@ public class WelcomeController {
 		//model.put("message", this.message);
 		ModelAndView mav=new ModelAndView("welcome");
 		BigDecimal square=numberService.square(BigDecimal.valueOf(Double.valueOf(number)));
+		if(logger.isDebugEnabled()) {
+			logger.debug("Square of {} : {}",number,square);
+		}
+		
+		if(logger.isDebugEnabled()) {
+			logger.debug("Square of {} : {}",number,square);
+		}
 		mav.addObject("message",square.toString());
 		return mav;
 	}
@@ -40,9 +50,7 @@ public class WelcomeController {
 	@RequestMapping(value="/welcome2",method=RequestMethod.GET)
 	@ResponseBody
 	public String getWelcomePage() {
-		
 		//ModelAndView mav=new ModelAndView("welcome");
-		
 		return "GET WELCOME";
 	}
 }
