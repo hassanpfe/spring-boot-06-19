@@ -5,6 +5,7 @@ package ma.ht.springboot.app.service;
 
 import java.math.BigDecimal;
 
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class NumberService {
-
+	
+	
+	@CacheEvict(allEntries = true)
+    public void clearCache(){}
+	
 	@Cacheable(
 			value = "squareCache", 
 		    key = "#number", 

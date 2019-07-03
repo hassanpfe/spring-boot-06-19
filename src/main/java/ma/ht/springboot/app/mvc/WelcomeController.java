@@ -4,12 +4,14 @@
 package ma.ht.springboot.app.mvc;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
 
-import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.jcache.JCacheCache;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,6 +33,9 @@ public class WelcomeController {
 	@Autowired
 	NumberService numberService;
 	
+	@Autowired
+	CacheManager cacheManager;
+	
 	@RequestMapping(value="/welcome", method=RequestMethod.GET)
 	public ModelAndView welcomeMav(@RequestParam String number) {
 		//model.put("message", this.message);
@@ -50,7 +55,10 @@ public class WelcomeController {
 	@RequestMapping(value="/welcome2",method=RequestMethod.GET)
 	@ResponseBody
 	public String getWelcomePage() {
-		//ModelAndView mav=new ModelAndView("welcome");
-		return "GET WELCOME";
+		JCacheCache cache= (JCacheCache) cacheManager.getCache("squareCache");
+		if(logger.isDebugEnabled()) {
+			logger.debug("square cache: {} ",cache);
+		}
+		return "OK";
 	}
 }
