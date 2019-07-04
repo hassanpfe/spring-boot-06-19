@@ -24,9 +24,12 @@
 
 	</appender>
 
-	<logger name="com.carte.verte.extract" level="DEBUG"
+	<logger name="ma.ht.springboot" level="ERROR"
 		additivity="false">
 		<appender-ref ref="FILE-AUDIT" />
+	</logger>
+	<logger name="org.springframework.boot" level="ERROR">
+  		<appender-ref ref="FILE-AUDIT" />
 	</logger>
 
 	<root level="DEBUG">

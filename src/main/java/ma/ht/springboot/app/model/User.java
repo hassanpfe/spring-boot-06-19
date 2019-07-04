@@ -5,8 +5,8 @@ package ma.ht.springboot.app.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -15,16 +15,22 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="user")
+@Table(name="USER")
 public class User {
 	
 	@Id
 	private String id;
+	@Column(name="LOGIN")
 	private String login;
+	@Column(name="PASSWORD")
 	private String password;
+	@Column(name="FIRSTNAME")
 	private String firstName;
+	@Column(name="LASTNAME")
 	private String lastName;
+	@Column(name="BIRTHDATE")
 	private Date birthDate;
+	@Column(name="ROLE")
 	private String role;
 	/**
 	 * 

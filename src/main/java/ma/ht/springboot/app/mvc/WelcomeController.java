@@ -55,9 +55,11 @@ public class WelcomeController {
 	@RequestMapping(value="/welcome2",method=RequestMethod.GET)
 	@ResponseBody
 	public String getWelcomePage() {
+
 		JCacheCache cache= (JCacheCache) cacheManager.getCache("squareCache");
 		if(logger.isDebugEnabled()) {
-			logger.debug("square cache: {} ",cache);
+			logger.debug("square cache number : {} ",cache.get("number"));
+			cache.get("number");
 		}
 		return "OK";
 	}

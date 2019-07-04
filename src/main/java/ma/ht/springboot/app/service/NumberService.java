@@ -23,7 +23,7 @@ public class NumberService {
 	
 	@Cacheable(
 			value = "squareCache", 
-		    key = "#number", 
+		    key = "number", 
 		    condition = "#number>10")
 	public BigDecimal square(BigDecimal number) {
 		BigDecimal square=number.multiply(number);
