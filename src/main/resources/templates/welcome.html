@@ -4,19 +4,18 @@
 		xmlns:spring="http://www.springframework.org/tags">
 <head>
 
-<link rel="stylesheet" type="text/css"
-	href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/datatables/1.10.12/css/dataTables.bootstrap.min.css}" />
 
-<!-- 
 	<spring:url value="/css/main.css" var="springCss" />
 	<link href="${springCss}" rel="stylesheet" />
-	 -->
+	 
 
 <link href="/css/main.css" rel="stylesheet" />
 
 </head>
 <body>
-
+<h3>Message: <label th:text="${message}"></label></h3>
 	<nav class="navbar navbar-inverse">
 		<div class="container">
 			<div class="navbar-header">
@@ -34,16 +33,19 @@
 	<div class="container">
 
 		<div class="starter-template">
-			<h1>Spring Boot Web JSP</h1>
+			<h1>Infos</h1>
 			<h2>Message: <label th:text="${message}"></label></h2>
 		</div>
 
 	</div>
 	<!-- /.container -->
 
-	<script type="text/javascript"
+	
+<!-- -->
+<script type="text/javascript"
 		src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+		<script type="text/javascript"
+		src="webjars/datatables/1.10.12/js/dataTables.bootstrap.min.js"></script>
 </body>
 
 </html>

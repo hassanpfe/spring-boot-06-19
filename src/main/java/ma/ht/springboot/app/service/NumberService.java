@@ -23,10 +23,12 @@ public class NumberService {
 	
 	@Cacheable(
 			value = "squareCache", 
-		    key = "number", 
+		    key = "#number", 
 		    condition = "#number>10")
-	public BigDecimal square(BigDecimal number) {
-		BigDecimal square=number.multiply(number);
+	public Long square(Long number) {
+		BigDecimal temp=BigDecimal.valueOf(number);
+		temp=temp.multiply(temp);
+		Long square= temp.longValue();
 		return square;
 	}
 }

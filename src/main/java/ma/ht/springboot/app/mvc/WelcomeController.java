@@ -3,15 +3,14 @@
  */
 package ma.ht.springboot.app.mvc;
 
-import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
+import org.ehcache.Cache;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;
-import org.springframework.cache.jcache.JCacheCache;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import ma.ht.springboot.app.model.User;
 import ma.ht.springboot.app.service.NumberService;
+import ma.ht.springboot.app.service.UserService;
 
 /**
  * @author H.TARRERITI
@@ -40,7 +41,7 @@ public class WelcomeController {
 	public ModelAndView welcomeMav(@RequestParam String number) {
 		//model.put("message", this.message);
 		ModelAndView mav=new ModelAndView("welcome");
-		BigDecimal square=numberService.square(BigDecimal.valueOf(Double.valueOf(number)));
+		Long square=numberService.square(Long.valueOf(number));
 		if(logger.isDebugEnabled()) {
 			logger.debug("Square of {} : {}",number,square);
 		}
@@ -56,11 +57,37 @@ public class WelcomeController {
 	@ResponseBody
 	public String getWelcomePage() {
 
-		JCacheCache cache= (JCacheCache) cacheManager.getCache("squareCache");
+		Cache cache= (Cache) cacheManager.getCache("squareCache");
 		if(logger.isDebugEnabled()) {
-			logger.debug("square cache number : {} ",cache.get("number"));
-			cache.get("number");
+			logger.debug("square cache number : {} ",cache.get(new Long(100)));
+			
 		}
 		return "OK";
 	}
+	
+	
+	@RequestMapping(value="/login", method=RequestMethod.GET)
+	public ModelAndView getLoginPage() {
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		ModelAndView mav=new ModelAndView("login");
+		
+		
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="//access-denied", method=RequestMethod.GET)
+	public ModelAndView getAccessDenied() {
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		ModelAndView mav=new ModelAndView("accessDenied");
+		
+		
+		
+		return mav;
+	}
+	
+	
+	
+	
+	
 }

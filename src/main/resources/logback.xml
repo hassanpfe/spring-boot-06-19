@@ -24,7 +24,7 @@
 
 	</appender>
 
-	<logger name="ma.ht.springboot" level="ERROR"
+	<logger name="ma.ht.springboot" level="DEBUG"
 		additivity="false">
 		<appender-ref ref="FILE-AUDIT" />
 	</logger>

@@ -23,7 +23,7 @@ public class AppErrorController implements ErrorController {
     @ResponseBody
 	public String getErrorPath() {
 		// TODO Auto-generated method stub
-		return "No Mappings Found";
+		return "No Mappings Found Perso";
 	}
 
 }

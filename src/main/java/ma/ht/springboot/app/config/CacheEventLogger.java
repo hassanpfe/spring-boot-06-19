@@ -25,6 +25,7 @@ public class CacheEventLogger  implements CacheEventListener<Object, Object>{
 		
 		if(logger.isDebugEnabled()) {
 			logger.debug("Event Log ***-------------------------------------------------------------------*****");
+			logger.debug("Cache Key : "+event.getKey()+",Event Old Value :"+event.getOldValue()+", Event new Value: "+event.getNewValue());
 		}
 	}
 	

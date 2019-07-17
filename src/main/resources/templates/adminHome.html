@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css"
+	th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/webjars/datatables/1.10.12/css/dataTables.bootstrap.min.css}" />
+<title>Welcome Admin</title>
+</head>
+<body>
+
+	<h2>Welcome Admin</h2>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Author</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:if="${listUsers.empty}">
+				<td colspan="2">No Users Registered</td>
+			</tr>
+			<tr th:each="user : ${listUsers}">
+				<td><span th:text="${user.login}"> Login </span></td>
+				<td><span th:text="${user.email}"> Email </span></td>
+			</tr>
+		</tbody>
+	</table>
+	<script type="text/javascript"
+		th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
+	
+	
+	<script type="text/javascript"
+		th:src="@{/webjars/datatables/1.10.12/js/dataTables.bootstrap.min.js}"></script>
+		
+	<script type="text/javascript"
+		th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+	
+		
+	
+</body>
+</html>
