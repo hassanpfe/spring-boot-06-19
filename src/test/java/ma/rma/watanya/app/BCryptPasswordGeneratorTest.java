@@ -20,7 +20,7 @@ public class BCryptPasswordGeneratorTest {
 	@Test
 	public void passwordEncryptEncoderTest() {
 		
-		String hardPassword="hassan";
+		String hardPassword="123456";
 		BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
 		String hashedPassword=passwordEncoder.encode(hardPassword);
 		System.out.println(hashedPassword);

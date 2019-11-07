@@ -19,8 +19,10 @@ import org.mockito.Mockito;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.mockito.MockitoAnnotations;
 
+import ma.ht.springboot.app.model.Product;
 import ma.ht.springboot.app.model.Role;
 import ma.ht.springboot.app.model.User;
+import ma.ht.springboot.app.repos.ProductRepository;
 import ma.ht.springboot.app.repos.RoleRepository;
 import ma.ht.springboot.app.repos.UserRepository;
 import ma.ht.springboot.app.service.UserService;
@@ -28,6 +30,7 @@ import ma.ht.springboot.app.service.UserService;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.mockitoSession;
 import static org.mockito.MockitoAnnotations.initMocks;
 
 /**
@@ -43,6 +46,9 @@ public class UserServiceTest {
     private RoleRepository mockRoleRepository;
     @Mock
     private BCryptPasswordEncoder mockBCryptPasswordEncoder;
+    
+    @Mock
+    private ProductRepository mockProductRepository;
     
     private UserService userServiceUnderTest;
     private User user;
@@ -81,6 +87,8 @@ public class UserServiceTest {
         
         Mockito.when(mockRoleRepository.findByRole(anyString()))
         .thenReturn(new Role(0,"ADMIN"));
+        
+        Mockito.when(mockProductRepository.save(any())).thenReturn(new Product(1, "Test Product", 12.0325, "Test "));
     }
     
     @Test

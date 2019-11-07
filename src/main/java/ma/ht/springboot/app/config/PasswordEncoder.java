@@ -9,7 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  * @author H.TARRERITI
- *
+ *Encoder used for encoding spring security's password
  */
 
 @Configuration

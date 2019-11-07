@@ -50,9 +50,9 @@ public class UserService {
     }
     
     public List<User> findAllUsers(){
-    	
-    	
     	return userRepository.findAll();
     }
+    
+    
     
 }

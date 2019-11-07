@@ -37,7 +37,7 @@ public class WelcomeController {
 	@Autowired
 	CacheManager cacheManager;
 	
-	@RequestMapping(value="/welcome", method=RequestMethod.GET)
+	@RequestMapping(value="/welcome2", method=RequestMethod.GET)
 	public ModelAndView welcomeMav(@RequestParam String number) {
 		//model.put("message", this.message);
 		ModelAndView mav=new ModelAndView("welcome");
@@ -53,16 +53,13 @@ public class WelcomeController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/welcome2",method=RequestMethod.GET)
-	@ResponseBody
-	public String getWelcomePage() {
-
-		Cache cache= (Cache) cacheManager.getCache("squareCache");
-		if(logger.isDebugEnabled()) {
-			logger.debug("square cache number : {} ",cache.get(new Long(100)));
-			
-		}
-		return "OK";
+	@RequestMapping(value="/welcome",method=RequestMethod.GET)
+	public ModelAndView getWelcomePage() {
+		
+		ModelAndView mav=new ModelAndView("welcome");
+		
+		return mav;
+		
 	}
 	
 	
@@ -71,18 +68,13 @@ public class WelcomeController {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		ModelAndView mav=new ModelAndView("login");
 		
-		
-		
 		return mav;
 	}
 	
-	@RequestMapping(value="//access-denied", method=RequestMethod.GET)
+	@RequestMapping(value="/access-denied", method=RequestMethod.GET)
 	public ModelAndView getAccessDenied() {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		ModelAndView mav=new ModelAndView("accessDenied");
-		
-		
-		
 		return mav;
 	}
 	
