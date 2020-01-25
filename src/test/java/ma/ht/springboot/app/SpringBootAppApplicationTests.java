@@ -1,4 +1,4 @@
-package ma.rma.watanya.app;
+package ma.ht.springboot.app;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

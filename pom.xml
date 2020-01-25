@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.spring.boot</groupId>
 	<artifactId>SpringBootApp</artifactId>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>SpringBootApp</name>
 	<description>App Spring Boot</description>
