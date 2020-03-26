@@ -114,6 +114,15 @@
 			<artifactId>lombok</artifactId>
 			<!-- version>1.16.6</version> -->
 		</dependency>
+
+		<!-- JMS Factory -->
+		<dependency>
+			<groupId>com.ibm.mq</groupId>
+			<artifactId>com.ibm.mq.allclient</artifactId>
+			<version>9.1.4.0</version>
+		</dependency>
+
+		<!-- -->
 	</dependencies>
 
 	<build>

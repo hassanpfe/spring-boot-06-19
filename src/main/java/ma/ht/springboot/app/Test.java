@@ -1,5 +1,8 @@
 package ma.ht.springboot.app;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Test {
 
 	public static void main(String[] args) {
@@ -10,7 +13,15 @@ public class Test {
 		
 		
 		System.out.println(numbers.length);
+		List list =new ArrayList<Integer>(2);
 		
+		list.add(1);
+		list.add(1);
+		list.add(1);
+		list.add(1);
+		
+		
+		list.stream().forEach(System.out::println);
 		for(int i=0;i<numbers.length;i++) {
 			for(int j=0;j<numbers.length;j++) {
 				for(int k=0;k<numbers.length;k++) {
